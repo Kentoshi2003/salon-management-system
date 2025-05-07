@@ -37,7 +37,7 @@ class PDF extends FPDF {
     function Header() {
         $this->SetFont('Arial', 'B', 12);
         $this->Cell(80);
-        $this->Cell(30, 10, 'Glamour Salon - Order Invoice', 0, 1, 'C');
+        $this->Cell(30, 10, 'AMICA Salon - Order Invoice', 0, 1, 'C');
         $this->Ln(10);
     }
 

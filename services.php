@@ -60,8 +60,8 @@ $services = $stmt_services->fetchAll(PDO::FETCH_ASSOC);
                         <h4 class="ser-vice-tit"><?= $service['name'] ?></h4>
                         <p class="ser-pra"><?= $service['description'] ?></p>
                         <p class="service-price">
-                            Standard Price: LKR <?= number_format($service['price'], 2) ?><br>
-                            Member Price: LKR <?= number_format($service['member_price'], 2) ?>
+                            Standard Price: PHP <?= number_format($service['price'], 2) ?><br>
+                            Member Price: PHP <?= number_format($service['member_price'], 2) ?>
                         </p>
                     </div>
                 </div>

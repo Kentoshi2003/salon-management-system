@@ -22,11 +22,11 @@ function sendCancellationEmail($email, $appointmentDetails) {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
 
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Salon');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Salon');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Glamour Salon: Appointment Cancellation Confirmation';
+        $mail->Subject = 'AMICA Salon: Appointment Cancellation Confirmation';
         $mail->Body = $appointmentDetails;
 
         $mail->send();
@@ -79,7 +79,7 @@ if (isset($_GET['cancel_appointment'])) {
     // Prepare the cancellation email content
     $appointmentDetails = "<h2>Appointment Cancellation</h2>";
     $appointmentDetails .= "<p>Dear {$appointment['first_name']} {$appointment['last_name']},</p>";
-    $appointmentDetails .= "<p>Your appointment for the service <strong>{$appointment['service_name']}</strong> with staff <strong>{$appointment['staff_name']}</strong> at Glamour Salon has been canceled.</p>";
+    $appointmentDetails .= "<p>Your appointment for the service <strong>{$appointment['service_name']}</strong> with staff <strong>{$appointment['staff_name']}</strong> at AMICA Salon has been canceled.</p>";
     $appointmentDetails .= "<p>Date: " . date('F d, Y', strtotime($appointment['appointment_date'])) . "<br>Time: " . date('h:i A', strtotime($appointment['appointment_time'])) . "</p>";
     
     // Send cancellation email

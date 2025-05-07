@@ -22,11 +22,11 @@ function sendCancellationEmail($email, $orderDetails) {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
 
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Salon');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Salon');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Glamour Salon: Order Cancellation Confirmation';
+        $mail->Subject = 'AMICA Salon: Order Cancellation Confirmation';
         $mail->Body = $orderDetails;
 
         $mail->send();
@@ -67,7 +67,7 @@ if (isset($_GET['cancel_order'])) {
     // Prepare the cancellation email content
     $orderDetails = "<h2>Order Cancellation</h2>";
     $orderDetails .= "<p>Dear {$user['first_name']} {$user['last_name']},</p>";
-    $orderDetails .= "<p>Your order with ID #{$order_id} at Glamour Salon has been successfully canceled.</p>";
+    $orderDetails .= "<p>Your order with ID #{$order_id} at AMICA Salon has been successfully canceled.</p>";
     $orderDetails .= "<p>If you have any questions, feel free to contact us.</p>";
 
     // Send cancellation email
@@ -123,7 +123,7 @@ function generatePDFLink($order_id) {
                             <thead>
                                 <tr>
                                     <th>Order ID</th>
-                                    <th>Total (LKR)</th>
+                                    <th>Total (PHP)</th>
                                     <th>Order Date</th>
                                     <th>Payment Method</th>
                                     <th>Status</th>

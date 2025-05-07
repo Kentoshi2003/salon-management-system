@@ -113,7 +113,7 @@ if (isset($_GET['remove'])) {
                                                 <?= $item['product_name'] ?>
                                             </a>
                                         </td>
-                                        <td class="sop-cart">LKR <?= number_format($item['price'], 2) ?></td>
+                                        <td class="sop-cart">PHP <?= number_format($item['price'], 2) ?></td>
                                         <td class="sop-cart">
                                             <?php if ($item['stock_status'] == 'in_stock'): ?>
                                                 <span class="label label-success">In Stock</span>

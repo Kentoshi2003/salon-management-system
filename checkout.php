@@ -22,11 +22,11 @@ function sendOrderConfirmationEmail($email, $orderDetails) {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
 
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Salon');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Salon');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Order Details - Glamour Salon';
+        $mail->Subject = 'Order Details - AMICA Salon';
         $mail->Body = $orderDetails;
 
         $mail->send();
@@ -110,7 +110,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Prepare the email content with full order details
     $orderDetails = "<h2>Order Details</h2>";
     $orderDetails .= "<p><strong>Order ID:</strong> {$order_id}</p>";
-    $orderDetails .= "<p><strong>Total Amount:</strong> LKR " . number_format($cart_total, 2) . "</p>";
+    $orderDetails .= "<p><strong>Total Amount:</strong> PHP " . number_format($cart_total, 2) . "</p>";
     $orderDetails .= "<p><strong>Payment Method:</strong> " . $_POST['payment_method'] . "</p>";
     $orderDetails .= "<h3>Customer Information</h3>";
     $orderDetails .= "<p><strong>Name:</strong> {$user['first_name']} {$user['last_name']}</p>";
@@ -120,11 +120,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $orderDetails .= "<h3>Order Items:</h3><ul>";
 
     foreach ($_SESSION['cart'] as $product) {
-        $orderDetails .= "<li>{$product['product_name']} - Qty: {$product['qty']} - Price: LKR " . number_format($product['price'], 2) . "</li>";
+        $orderDetails .= "<li>{$product['product_name']} - Qty: {$product['qty']} - Price: PHP " . number_format($product['price'], 2) . "</li>";
     }
 
     $orderDetails .= "</ul>";
-    $orderDetails .= "<p>Thank you for shopping with Glamour Salon!</p>";
+    $orderDetails .= "<p>Thank you for shopping with AMICA Salon!</p>";
 
     // Handle payment method logic
     if ($_POST['payment_method'] === 'online_payment') {
@@ -136,7 +136,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Prepare parameters for PayHere
         $merchant_id = $_ENV['PAYHERE_MERCHANT_ID'];
         $merchant_secret = $_ENV['PAYHERE_MERCHANT_SECRET'];
-        $currency = 'LKR';
+        $currency = 'PHP';
         $hash = strtoupper(
             md5(
                 $merchant_id . 
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         // Prepare email content for Cash on Delivery
         $codOrderDetails = "<h2>Your order has been created</h2>";
         $codOrderDetails .= "<p>Order ID: {$order_id}</p>";
-        $codOrderDetails .= "<p>Total Amount: LKR " . number_format($cart_total, 2) . "</p>";
+        $codOrderDetails .= "<p>Total Amount: PHP " . number_format($cart_total, 2) . "</p>";
         $codOrderDetails .= "<p>Status: <strong>Cash on Delivery</strong></p>";
         $codOrderDetails .= "<p>Your order will be delivered to the address provided.</p>";
         $codOrderDetails .= "<h3>Customer Information</h3>";
@@ -189,11 +189,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $codOrderDetails .= "<h3>Order Items:</h3><ul>";
 
         foreach ($_SESSION['cart'] as $product) {
-            $codOrderDetails .= "<li>{$product['product_name']} - Qty: {$product['qty']} - Price: LKR " . number_format($product['price'], 2) . "</li>";
+            $codOrderDetails .= "<li>{$product['product_name']} - Qty: {$product['qty']} - Price: PHP " . number_format($product['price'], 2) . "</li>";
         }
 
         $codOrderDetails .= "</ul>";
-        $codOrderDetails .= "<p>Thank you for shopping with Glamour Salon!</p>";
+        $codOrderDetails .= "<p>Thank you for shopping with AMICA Salon!</p>";
 
         // Send email for Cash on Delivery
         if (!sendOrderConfirmationEmail($user['email'], $codOrderDetails)) {

@@ -151,7 +151,7 @@ include 'dbconnect.php';
                                                 <div class="hs-shop-details">
                                                     <h4 class="shop-title"><a href="#"><?php echo $product['product_name']; ?></a></h4>
                                                     <ul class="product-price">
-                                                        <li class="new-price">LKR <?php echo number_format($product['price'], 2); ?></li>
+                                                        <li class="new-price">PHP <?php echo number_format($product['price'], 2); ?></li>
                                                         <?php if ($is_out_of_stock): ?>
                                                             <li style="color: red;">Out of Stock</li>
                                                         <?php endif; ?>
@@ -206,7 +206,7 @@ include 'dbconnect.php';
                                                     <h4 class="shop-title"><a href="#"><?php echo $product['product_name']; ?></a></h4>
                                                     <p><?php echo $product['description']; ?></p>
                                                     <ul class="product-price">
-                                                        <li class="new-price">LKR <?php echo number_format($product['price'], 2); ?></li>
+                                                        <li class="new-price">PHP <?php echo number_format($product['price'], 2); ?></li>
                                                         <?php if ($is_out_of_stock): ?>
                                                             <li style="color: red;">Out of Stock</li>
                                                         <?php endif; ?>

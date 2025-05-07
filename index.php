@@ -11,7 +11,7 @@ include 'dbconnect.php';
                            <div class="col-md-8">
                                <div class="slider-content">
                                    <div class="slider-inner text-center">
-                                       <h1>Glamour Salon</h1>
+                                       <h1>AMICA Salon</h1>
                                        <p>Your beauty, our passion. Experience luxury hair care and wellness.</p>
                                        <div class="slider-button">
                                             <a class="hs-btn btn-light btn-large" href="contact.php">Contact Us</a>
@@ -79,7 +79,7 @@ include 'dbconnect.php';
                             <h2 class="section-title">Our Story</h2>
                             <p class="theme-color pra-1">Where Beauty Meets Passion</p>
                             <div class="story-details">
-                                <p>At Glamour Salon, we believe beauty is an expression of your inner self. Founded with the vision to create a luxurious space where clients can relax and rejuvenate, our salon has grown into a sanctuary of creativity, passion, and care.</p>
+                                <p>At AMICA Salon, we believe beauty is an expression of your inner self. Founded with the vision to create a luxurious space where clients can relax and rejuvenate, our salon has grown into a sanctuary of creativity, passion, and care.</p>
                                 <p>Our team of expert stylists and beauticians is dedicated to providing personalized services that enhance your natural beauty and boost your confidence. From the latest hair trends to signature spa treatments, we ensure that every visit is a pampering experience you'll never forget.</p>
                                 <p>With years of expertise, a commitment to excellence, and a love for what we do, we continue to evolve, offering the best in beauty and self-care.</p>
                             </div>
@@ -107,8 +107,8 @@ include 'dbconnect.php';
                             <div class="single-service-area">
                                 <h4 class="ser-vice-tit"><?= $service['name'] ?> (<?= $service['category'] ?>)</h4>
                                 <p class="ser-pra"><?= $service['description'] ?></p>
-                                <p><strong>Price:</strong> <?= number_format($service['price'], 2) ?> LKR</p>
-                                <p><strong>Member Price:</strong> <?= number_format($service['member_price'], 2) ?> LKR</p>
+                                <p><strong>Price:</strong> <?= number_format($service['price'], 2) ?> PHP</p>
+                                <p><strong>Member Price:</strong> <?= number_format($service['member_price'], 2) ?> PHP</p>
                                 <p><strong>Duration:</strong> <?= $service['duration'] ?> minutes</p>
                             </div>
                         </div>
@@ -123,7 +123,7 @@ include 'dbconnect.php';
                     <div class="col-12">
                         <div class="hs-pricing-title text-center">
                             <h2 class="section-title">Membership Benefits</h2>
-                            <p class="section-details">As a registered member of Glamour Salon, you unlock access to exclusive member prices and enjoy a range of premium services. Sign up today to take advantage of these fantastic benefits!</p>
+                            <p class="section-details">As a registered member of AMICA Salon, you unlock access to exclusive member prices and enjoy a range of premium services. Sign up today to take advantage of these fantastic benefits!</p>
                         </div>
                     </div>
                 </div>
@@ -244,7 +244,7 @@ include 'dbconnect.php';
                     <div class="col-12">
                         <div class="hs-pricing-title text-center">
                             <h2 class="section-title">Our Works</h2>
-                            <p class="section-details">At Glamour Salon, we pride ourselves on delivering stunning transformations. From elegant hairstyles to flawless makeup, our talented team brings your beauty vision to life with every service.</p>
+                            <p class="section-details">At AMICA Salon, we pride ourselves on delivering stunning transformations. From elegant hairstyles to flawless makeup, our talented team brings your beauty vision to life with every service.</p>
                         </div>
                     </div>                    
                 </div>

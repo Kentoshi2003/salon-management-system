@@ -20,7 +20,7 @@ function sendOrderStatusEmail($email, $subject, $orderDetails) {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
 
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Salon');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Salon');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
@@ -79,11 +79,11 @@ if ($local_md5sig === $md5sig) {
     $orderDetails .= "<p><strong>Email:</strong> {$order['email']}</p>";
     $orderDetails .= "<p><strong>Telephone:</strong> {$order['telephone']}</p>";
     $orderDetails .= "<p><strong>Shipping Address:</strong> {$order['address']}, {$order['city']}, {$order['postal_code']}, {$order['country']}</p>";
-    $orderDetails .= "<p><strong>Total Amount:</strong> LKR " . number_format($order['total'], 2) . "</p>";
+    $orderDetails .= "<p><strong>Total Amount:</strong> PHP " . number_format($order['total'], 2) . "</p>";
     $orderDetails .= "<h3>Order Items:</h3><ul>";
 
     foreach ($order_items as $item) {
-        $orderDetails .= "<li>{$item['product_name']} - Qty: {$item['quantity']} - Price: LKR " . number_format($item['price'], 2) . "</li>";
+        $orderDetails .= "<li>{$item['product_name']} - Qty: {$item['quantity']} - Price: PHP " . number_format($item['price'], 2) . "</li>";
     }
 
     $orderDetails .= "</ul>";
@@ -94,8 +94,8 @@ if ($local_md5sig === $md5sig) {
             $stmt_update = $pdo->prepare("UPDATE orders SET status = 'paid' WHERE order_id = :order_id");
             $stmt_update->execute(['order_id' => $order_id]);
             $orderDetails .= "<p><strong>Payment Status:</strong> Successful</p>";
-            $orderDetails .= "<p>Your payment has been received successfully. Thank you for shopping with Glamour Salon!</p>";
-            sendOrderStatusEmail($order['email'], 'Order Completed - Glamour Salon', $orderDetails);
+            $orderDetails .= "<p>Your payment has been received successfully. Thank you for shopping with AMICA Salon!</p>";
+            sendOrderStatusEmail($order['email'], 'Order Completed - AMICA Salon', $orderDetails);
             error_log("Payment success for order ID: {$order_id}. Email sent.");
             break;
 
@@ -104,7 +104,7 @@ if ($local_md5sig === $md5sig) {
             $stmt_update->execute(['order_id' => $order_id]);
             $orderDetails .= "<p><strong>Payment Status:</strong> Pending</p>";
             $orderDetails .= "<p>Your payment is currently pending. We will notify you once it has been processed. If you have any questions, please contact support.</p>";
-            sendOrderStatusEmail($order['email'], 'Order Pending - Glamour Salon', $orderDetails);
+            sendOrderStatusEmail($order['email'], 'Order Pending - AMICA Salon', $orderDetails);
             error_log("Payment pending for order ID: {$order_id}. Email sent.");
             break;
 
@@ -113,7 +113,7 @@ if ($local_md5sig === $md5sig) {
             $stmt_update->execute(['order_id' => $order_id]);
             $orderDetails .= "<p><strong>Payment Status:</strong> Cancelled</p>";
             $orderDetails .= "<p>Your payment was cancelled. If you wish to retry, please place a new order. For any queries, contact support.</p>";
-            sendOrderStatusEmail($order['email'], 'Order Cancelled - Glamour Salon', $orderDetails);
+            sendOrderStatusEmail($order['email'], 'Order Cancelled - AMICA Salon', $orderDetails);
             error_log("Payment cancelled for order ID: {$order_id}. Email sent.");
             break;
 
@@ -122,7 +122,7 @@ if ($local_md5sig === $md5sig) {
             $stmt_update->execute(['order_id' => $order_id]);
             $orderDetails .= "<p><strong>Payment Status:</strong> Failed</p>";
             $orderDetails .= "<p>Your payment attempt failed. Please try again or contact support for assistance.</p>";
-            sendOrderStatusEmail($order['email'], 'Payment Failed - Glamour Salon', $orderDetails);
+            sendOrderStatusEmail($order['email'], 'Payment Failed - AMICA Salon', $orderDetails);
             error_log("Payment failed for order ID: {$order_id}. Email sent.");
             break;
 
@@ -131,7 +131,7 @@ if ($local_md5sig === $md5sig) {
             $stmt_update->execute(['order_id' => $order_id]);
             $orderDetails .= "<p><strong>Payment Status:</strong> Chargeback</p>";
             $orderDetails .= "<p>A chargeback has been issued for your payment. Please contact support for further details.</p>";
-            sendOrderStatusEmail($order['email'], 'Chargeback Received - Glamour Salon', $orderDetails);
+            sendOrderStatusEmail($order['email'], 'Chargeback Received - AMICA Salon', $orderDetails);
             error_log("Chargeback received for order ID: {$order_id}. Email sent.");
             break;
 

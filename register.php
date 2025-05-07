@@ -23,12 +23,12 @@ function sendOTP($email, $otp) {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
 
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Salon');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Salon');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Your OTP for Glamour Salon Account Verification';
-        $mail->Body = "Dear Customer,<br><br>Your OTP for verifying your Glamour Salon account is: <b>$otp</b>.<br><br>This OTP will expire in 10 minutes.<br><br>Thank you for choosing Glamour Salon!<br><br>Best regards,<br>Glamour Salon Team";
+        $mail->Subject = 'Your OTP for AMICA Salon Account Verification';
+        $mail->Body = "Dear Customer,<br><br>Your OTP for verifying your AMICA Salon account is: <b>$otp</b>.<br><br>This OTP will expire in 10 minutes.<br><br>Thank you for choosing AMICA Salon!<br><br>Best regards,<br>AMICA Salon Team";
 
         $mail->send();
         return true;

@@ -19,11 +19,11 @@ function sendOrderUpdateEmail($email, $orderDetails) {
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
 
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Store');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Store');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
-        $mail->Subject = 'Order Update from Glamour Store';
+        $mail->Subject = 'Order Update from AMICA Store';
         $mail->Body = $orderDetails;
 
         $mail->send();
@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $orderDetails .= "<p><strong>Total Amount:</strong> LKR " . number_format($order['total'], 2) . "</p>";
     $orderDetails .= "<p><strong>Order Date:</strong> " . date('F d, Y', strtotime($order['created_at'])) . "</p>";
     $orderDetails .= "<p>If you have any questions, please feel free to contact us.</p>";
-    $orderDetails .= "<p>Thank you for shopping with Glamour Store!</p>";
+    $orderDetails .= "<p>Thank you for shopping with AMICA Store!</p>";
 
     sendOrderUpdateEmail($order['email'], $orderDetails);
 

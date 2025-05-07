@@ -37,12 +37,12 @@ function sendAppointmentEmail($email, $name, $appointment_date, $appointment_tim
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
 
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Salon');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Salon');
         $mail->addAddress($email);
 
         $mail->isHTML(true);
         $mail->Subject = 'Your Appointment Confirmation';
-        $mail->Body = "Dear $name,<br><br>Your appointment for $service_name on <b>$appointment_date</b> at <b>$appointment_time</b> has been successfully booked.<br><br>We look forward to seeing you at Glamour Salon.<br><br>Best regards,<br>Glamour Salon Team";
+        $mail->Body = "Dear $name,<br><br>Your appointment for $service_name on <b>$appointment_date</b> at <b>$appointment_time</b> has been successfully booked.<br><br>We look forward to seeing you at AMICA Salon.<br><br>Best regards,<br>AMICA Salon Team";
 
         $mail->send();
         return true;
@@ -208,7 +208,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="appoinment-title text-center">
                         <h2 class="section-title">Book an Appointment</h2>
                         <p class="section-details appoinment">
-                            Schedule your beauty experience with Glamour Salon. Fill in the details below and we will take care of the rest.
+                            Schedule your beauty experience with AMICA Salon. Fill in the details below and we will take care of the rest.
                         </p>
                     </div>
 

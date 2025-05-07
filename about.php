@@ -38,9 +38,9 @@
                     <h2 class="section-title">Our Story</h2>
                     <p class="theme-color pra-1">A Legacy of Beauty and Care</p>
                     <div class="story-details">
-                        <p>Welcome to Glamour Salon, where beauty meets passion. Founded with a vision to offer premium beauty services in a luxurious and relaxing environment, Glamour Salon has become a haven for those seeking exceptional hair and beauty care.</p>
+                        <p>Welcome to AMICA Salon, where beauty meets passion. Founded with a vision to offer premium beauty services in a luxurious and relaxing environment, AMICA Salon has become a haven for those seeking exceptional hair and beauty care.</p>
                         <p>Our team of skilled professionals is committed to staying ahead of the latest trends and techniques to ensure that every client leaves feeling their best. From haircuts and styling to makeup and spa treatments, we offer personalized services that enhance your natural beauty.</p>
-                        <p>With years of experience and a passion for creativity, we continuously strive to provide an unmatched salon experience that exceeds your expectations. At Glamour Salon, we don't just offer services, we create an experience of indulgence and relaxation.</p>
+                        <p>With years of experience and a passion for creativity, we continuously strive to provide an unmatched salon experience that exceeds your expectations. At AMICA Salon, we don't just offer services, we create an experience of indulgence and relaxation.</p>
                     </div>
                     <div class="story-writter">
                         <img src="images/story-img/2.png" alt="Founder Signature">

@@ -6,7 +6,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="footer-btm-inner text-center">
-                                <p>© 2024 <span class="text-capitalize">Glamour Salon</span> all rights reserved.</p>
+                                <p>© 2024 <span class="text-capitalize">AMICA Salon</span> all rights reserved.</p>
                             </div>
                         </div>
                     </div>

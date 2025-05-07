@@ -64,7 +64,7 @@
                                         <a href="#"><i class="zmdi zmdi-pin"></i></a>
                                     </div>
                                     <div class="footer-address">
-                                        <p>Address: Colombo, Sri Lanka.</p>
+                                        <p>Address: Tampakan, South Cotabato.</p>
                                     </div>
                                 </div>
                                 <div class="ft-single-address">
@@ -72,8 +72,8 @@
                                         <a href="#"><i class="zmdi zmdi-email"></i></a>
                                     </div>
                                     <div class="footer-address">
-                                        <p><a href="mailto:info@glamoursalon.com">info@glamoursalon.com</a></p>
-                                        <p><a href="mailto:support@glamoursalon.com">support@glamoursalon.com</a></p>
+                                        <p><a href="mailto:info@glamoursalon.com">info@amicasalon.com</a></p>
+                                        <p><a href="mailto:support@glamoursalon.com">support@amicasalon.com</a></p>
                                     </div>
                                 </div>
                                 <div class="ft-single-address">
@@ -112,7 +112,7 @@
                     <div class="row">
                         <div class="col-md-12">
                             <div class="footer-btm-inner text-center">
-                                <p>© 2024 <span class="text-capitalize">Glamour Salon</span> all rights reserved.</p>
+                                <p>© 2024 <span class="text-capitalize">AMICA Salon</span> all rights reserved.</p>
                             </div>
                         </div>
                     </div>

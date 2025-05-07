@@ -81,22 +81,22 @@
           max: 50000,
           values: [1000, 50000],
           slide: function(event, ui) {
-              $("#amount").val("LKR " + ui.values[0].toLocaleString() + " - LKR " + ui.values[1].toLocaleString());
+              $("#amount").val("PHP " + ui.values[0].toLocaleString() + " - PHP " + ui.values[1].toLocaleString());
           },
           stop: function(event, ui) {
               var minPrice = ui.values[0];
               var maxPrice = ui.values[1];
-              $("#amount").val("LKR " + minPrice.toLocaleString() + " - LKR " + maxPrice.toLocaleString());
+              $("#amount").val("PHP " + minPrice.toLocaleString() + " - PHP " + maxPrice.toLocaleString());
               $("form#price-filter-form").submit();
           }
       });
 
-      $("#amount").val("LKR " + $("#slider-range").slider("values", 0).toLocaleString() +
-          " - LKR " + $("#slider-range").slider("values", 1).toLocaleString());
+      $("#amount").val("PHP " + $("#slider-range").slider("values", 0).toLocaleString() +
+          " - PHP " + $("#slider-range").slider("values", 1).toLocaleString());
 
       $("form#price-filter-form").submit(function(event) {
           event.preventDefault();  // Prevent the default form submission
-          var priceRange = $("#amount").val().replace(/LKR\s|,/g, '').split('-');
+          var priceRange = $("#amount").val().replace(/PHP\s|,/g, '').split('-');
           var minPrice = priceRange[0].trim();
           var maxPrice = priceRange[1].trim();
           var currentUrl = window.location.pathname;

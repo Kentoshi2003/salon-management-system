@@ -3,6 +3,7 @@ include 'dbconnect.php';
 include 'header.php';
 require 'vendor/autoload.php';
 use Dotenv\Dotenv;
+use GuzzleHttp\Client;
 
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
@@ -40,44 +41,37 @@ $user = $stmt_user->fetch(PDO::FETCH_ASSOC);
 
 // Handle payment method logic
 if ($order['payment_method'] === 'online_payment') {
-    $merchant_id = $_ENV['PAYHERE_MERCHANT_ID'];
-    $merchant_secret = $_ENV['PAYHERE_MERCHANT_SECRET'];
-    $return_url = $_ENV['PAYHERE_RETURN_URL'];
-    $cancel_url = $_ENV['PAYHERE_CANCEL_URL'];
-    $notify_url = $_ENV['PAYHERE_NOTIFY_URL'];
-    $currency = 'LKR';
+    $client = new Client();
+    $secret_key = getenv('PAYMONGO_SECRET_KEY');  // PayMongo Secret Key
 
-    $hash = strtoupper(
-        md5(
-            $merchant_id . 
-            $order_id . 
-            number_format($order['total'], 2, '.', '') . 
-            $currency .  
-            strtoupper(md5($merchant_secret))
-        )
-    );
+    try {
+        // Create a payment intent
+        $response = $client->post('https://api.paymongo.com/v1/payment_intents', [
+            'json' => [
+                'data' => [
+                    'attributes' => [
+                        'amount' => number_format($order['total'], 2, '.', '') * 100, // Convert to cents
+                        'currency' => 'PHP',
+                        'payment_method_types' => ['gcash', 'paymaya', 'credit_card'],
+                    ],
+                ],
+            ],
+            'headers' => [
+                'Authorization' => 'Basic ' . base64_encode($secret_key . ':'),  // Basic auth with secret key
+                'Content-Type' => 'application/json',
+            ]
+        ]);
 
-    echo '<form method="post" action="https://sandbox.payhere.lk/pay/checkout" id="payhere_form">';
-    echo '<input type="hidden" name="merchant_id" value="' . $merchant_id . '">';
-    echo '<input type="hidden" name="return_url" value="' . $return_url . '">';
-    echo '<input type="hidden" name="cancel_url" value="' . $cancel_url . '">';
-    echo '<input type="hidden" name="notify_url" value="' . $notify_url . '">';
-    echo '<input type="hidden" name="order_id" value="' . $order_id . '">';
-    echo '<input type="hidden" name="items" value="Order No: ' . $order_id . '">';
-    echo '<input type="hidden" name="currency" value="' . $currency . '">';
-    echo '<input type="hidden" name="amount" value="' . number_format($order['total'], 2, '.', '') . '">';
-    echo '<input type="hidden" name="first_name" value="' . $user['first_name'] . '">';
-    echo '<input type="hidden" name="last_name" value="' . $user['last_name'] . '">';
-    echo '<input type="hidden" name="email" value="' . $user['email'] . '">';
-    echo '<input type="hidden" name="phone" value="' . $user['telephone'] . '">';
-    echo '<input type="hidden" name="address" value="' . $user['address'] . '">';
-    echo '<input type="hidden" name="city" value="' . $user['city'] . '">';
-    echo '<input type="hidden" name="country" value="' . $user['country'] . '">';
-    echo '<input type="hidden" name="hash" value="' . $hash . '">';
-    echo '</form>';
+        $paymentIntent = json_decode($response->getBody(), true);
 
-    echo '<script>document.getElementById("payhere_form").submit();</script>';
-    exit;
+        // Redirect the user to the payment page
+        header('Location: ' . $paymentIntent['data']['attributes']['redirect']['url']);
+        exit;
+
+    } catch (Exception $e) {
+        echo "<script>alert('Payment creation failed: " . $e->getMessage() . "'); window.location.href = 'manage_orders.php';</script>";
+        exit;
+    }
 
 } elseif ($order['payment_method'] === 'cod') {
     // Handle Cash on Delivery (COD)

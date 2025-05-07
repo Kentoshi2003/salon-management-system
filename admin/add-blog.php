@@ -19,7 +19,7 @@ function sendBlogNotificationEmail($title, $content, $tags, $subscribers) {
         $mail->Password = $_ENV['SMTP_PASSWORD'];
         $mail->SMTPSecure = 'ssl';
         $mail->Port = $_ENV['SMTP_PORT'];
-        $mail->setFrom($_ENV['SMTP_USER'], 'Glamour Salon');
+        $mail->setFrom($_ENV['SMTP_USER'], 'AMICA Salon');
 
         // Add all subscriber emails
         foreach ($subscribers as $subscriber) {
@@ -32,7 +32,7 @@ function sendBlogNotificationEmail($title, $content, $tags, $subscribers) {
                        <p><strong>$title</strong></p>
                        <p>$content</p>
                        <p>Tags: $tags</p>
-                       <p>Check out the latest blog post on Glamour Salon!</p>";
+                       <p>Check out the latest blog post on AMICA Salon!</p>";
 
         $mail->send();
         return true;
